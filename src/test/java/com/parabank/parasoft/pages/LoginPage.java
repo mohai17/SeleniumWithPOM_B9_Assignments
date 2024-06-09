@@ -35,6 +35,15 @@ public class LoginPage extends BasePage{
 
     }
 
+    public LoginPage loginButtonClickF(){
+        getPageElement(By.cssSelector("input[type='submit']")).click();
+        return this;
+    }
 
+    public boolean hasLoginError(){
+
+        return !getPageElements(By.cssSelector("p[class='error']")).isEmpty();
+
+    }
 
 }

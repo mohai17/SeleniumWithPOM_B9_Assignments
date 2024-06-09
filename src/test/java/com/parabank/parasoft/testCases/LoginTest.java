@@ -20,13 +20,29 @@ public class LoginTest extends BaseTest{
     public void loginSucceed(){
 
         LoginPage loginPage = basePage.getInstance(LoginPage.class);
-
         AccountOverviewPage accountOverviewPage = loginPage
                  .userName("nayeem")
-                 .password("nayeem")
-                 .loginButtonClick();
+                         .password("nayeem")
+                                 .loginButtonClick();
 
         Assert.assertTrue(accountOverviewPage.hasLogoutLink());
 
+        accountOverviewPage.logout();
+
     }
+
+    @Test
+    public void loginFailed(){
+
+        LoginPage loginPage = basePage.getInstance(LoginPage.class);
+        boolean loginError = loginPage
+                .userName("")
+                        .password("")
+                                .loginButtonClickF()
+                                        .hasLoginError();
+
+        Assert.assertTrue(loginError);
+
+    }
+
 }

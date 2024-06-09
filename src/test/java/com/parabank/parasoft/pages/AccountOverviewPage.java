@@ -15,4 +15,12 @@ public class AccountOverviewPage extends BasePage{
 
     }
 
+    public LoginPage logout(){
+
+        getPageElement(By.linkText("Log Out")).click();
+
+        return getInstance(LoginPage.class);
+
+    }
+
 }
