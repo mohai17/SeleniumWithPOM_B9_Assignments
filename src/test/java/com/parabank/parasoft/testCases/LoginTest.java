@@ -2,6 +2,7 @@ package com.parabank.parasoft.testCases;
 
 import com.parabank.parasoft.pages.AccountOverviewPage;
 import com.parabank.parasoft.pages.LoginPage;
+import com.parabank.parasoft.util.General;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,10 +11,10 @@ public class LoginTest extends BaseTest{
     @Test
     public void titleTest(){
 
-        String title = basePage.getPageTitle();
-        String expected = "ParaBank | Welcome | Online Banking";
+        String actual = basePage.getPageTitle();
+        String expected = General.HOME_PAGE_TITLE;
 
-        Assert.assertEquals(title,expected);
+        Assert.assertEquals(actual,expected);
     }
 
     @Test
@@ -21,8 +22,8 @@ public class LoginTest extends BaseTest{
 
         LoginPage loginPage = basePage.getInstance(LoginPage.class);
         AccountOverviewPage accountOverviewPage = loginPage
-                 .userName("nayeem")
-                         .password("nayeem")
+                 .userName(getUserName())
+                         .password(getPassword())
                                  .loginButtonClick();
 
         Assert.assertTrue(accountOverviewPage.hasLogoutLink());
