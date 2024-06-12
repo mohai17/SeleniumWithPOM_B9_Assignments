@@ -46,4 +46,9 @@ public class LoginPage extends BasePage{
 
     }
 
+    public CustomerLookUpPage forgotLinkClick(){
+        getPageElement(By.cssSelector("a[href='lookup.htm']")).click();
+        return getInstance(CustomerLookUpPage.class);
+    }
+
 }
