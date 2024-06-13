@@ -11,8 +11,8 @@
 <!--                    <include name="loginFailed"/>-->
 <!--                </methods>-->
 <!--            </class>-->
-            <class name="com.parabank.parasoft.testCases.CustomerLookUpTest"/>
-
+<!--            <class name="com.parabank.parasoft.testCases.CustomerLookUpTest"/>-->
+                <class name="com.parabank.parasoft.testCases.OpenAccountTest"/>
         </classes>
     </test>
 </suite>
