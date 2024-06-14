@@ -5,8 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -31,7 +33,8 @@ public class BaseTest{
 
     }
 
-    @BeforeClass
+//    @BeforeClass
+    @BeforeMethod
     public void setupBrowser(){
 
         String browserName = properties.getProperty("browserName");
@@ -64,11 +67,36 @@ public class BaseTest{
     }
 
 
-    @AfterClass
+//    @AfterClass
+    @AfterMethod
     public void closeBrowser(){
         webDriver.quit();
     }
 
 
+    public String getUserName(){
+        return properties.getProperty("username");
+    }
+    public String getPassword(){
+        return properties.getProperty("password");
+    }
+    public String getAccountNo(){
+        return properties.getProperty("accountNo");
+    }
+    public String getTransactionId(){
+        return properties.getProperty("transactionId");
+    }
+    public String getDate(){
+        return properties.getProperty("date");
+    }
+    public String getFromDate(){
+        return properties.getProperty("fromDate");
+    }
+    public String getToDate(){
+        return properties.getProperty("toDate");
+    }
+    public String getAmount(){
+        return properties.getProperty("amount");
+    }
 
 }
