@@ -56,6 +56,12 @@ public class BasePage extends Page{
     }
 
     @Override
+    public void waitImplicitlyForElement() {
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    }
+
+
+    @Override
     public <T extends BasePage> T getInstance(Class<T> tClass) {
 
         try {

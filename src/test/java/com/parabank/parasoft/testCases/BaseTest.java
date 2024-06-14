@@ -16,12 +16,13 @@ public class BaseTest{
 
     WebDriver webDriver;
     BasePage basePage;
-    private Properties properties;
+    private final Properties properties;
 
     public BaseTest(){
 
         try {
-            String filepath = System.getProperty("user.dir")+"src/test/resources/config.properties";
+            properties = new Properties();
+            String filepath = System.getProperty("user.dir")+"/src/test/resources/config.properties";
             FileInputStream inputStream = new FileInputStream(filepath);
             properties.load(inputStream);
         } catch (IOException e) {
@@ -77,8 +78,9 @@ public class BaseTest{
         return properties.getProperty("password");
     }
 
-    public Integer getAmount(){
-        return Integer.getInteger(properties.getProperty("amount"));
+    public String getAmount(){
+
+        return properties.getProperty("amount");
     }
 
 }

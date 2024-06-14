@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.time.Duration;
+
 
 public class TransferFundsPage extends BasePage{
 
@@ -41,26 +43,28 @@ public class TransferFundsPage extends BasePage{
         return getInstance(TransferFundsPage.class);
     }
 
-    public TransferFundsPage amount(int amount){
+    public TransferFundsPage amount(String amount){
 
-        getPageElement(By.cssSelector("input[id='amount']")).sendKeys(String.valueOf(amount));
+        getPageElement(By.cssSelector("input[id='amount']")).sendKeys(amount);
         return getInstance(TransferFundsPage.class);
 
     }
 
     public TransferFundsPage senderAccount(){
 
+        waitImplicitlyForElement();
         WebElement webElement = getPageElement(By.cssSelector("select[id='fromAccountId']"));
         Select select = new Select(webElement);
-        select.selectByIndex(1);
+        select.selectByValue("13677");
         return getInstance(TransferFundsPage.class);
     }
 
     public TransferFundsPage receiverAccount(){
 
         WebElement webElement = getPageElement(By.cssSelector("select[id='toAccountId']"));
+        webElement.click();
         Select select = new Select(webElement);
-        select.selectByIndex(2);
+        select.selectByValue("13677");
         return getInstance(TransferFundsPage.class);
     }
 

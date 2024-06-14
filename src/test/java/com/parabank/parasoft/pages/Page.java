@@ -11,6 +11,7 @@ public abstract class Page {
     public abstract WebElement getPageElement(By locator);
     public abstract List<WebElement> getPageElements(By locator);
     public abstract void waitForElement(By locator);
+    public abstract void waitImplicitlyForElement();
     public abstract <T extends BasePage> T getInstance(Class<T> tClass);
     
 }

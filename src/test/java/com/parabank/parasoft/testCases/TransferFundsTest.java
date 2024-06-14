@@ -25,6 +25,8 @@ public class TransferFundsTest extends BaseTest{
 
         Assert.assertTrue(actual);
 
+        transferFundsPage.logout();
+
     }
 
 
