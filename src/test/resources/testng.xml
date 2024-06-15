@@ -3,13 +3,15 @@
 <suite name="All Test Suite">
     <test verbose="2" name="C:/Users/mohai/IdeaProjects/WebAutomationWithPOM">
         <classes>
-            <class name="com.parabank.parasoft.testCases.LoginTest">
-                <methods>
-                    <include name="titleTest"/>
-                    <include name="loginSucceed"/>
-                    <include name="loginFailed"/>
-                </methods>
-            </class>
+<!--            <class name="com.parabank.parasoft.testCases.LoginTest">-->
+<!--                <methods>-->
+<!--                    <include name="titleTest"/>-->
+<!--                    <include name="loginSucceed"/>-->
+<!--                    <include name="loginFailed"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+
+            <class name="com.parabank.parasoft.testCases.ContactTest"/>
         </classes>
     </test>
 </suite>
