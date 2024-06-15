@@ -3,8 +3,8 @@ package com.parabank.parasoft.testCases;
 import com.parabank.parasoft.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseTest{
 
@@ -12,7 +12,7 @@ public class BaseTest{
     BasePage basePage;
 
 
-    @BeforeClass
+    @BeforeMethod
     public void setupBrowser(){
 
         webDriver = new FirefoxDriver();
@@ -24,7 +24,7 @@ public class BaseTest{
     }
 
 
-    @AfterClass
+    @AfterMethod
     public void closeBrowser(){
         webDriver.quit();
     }
