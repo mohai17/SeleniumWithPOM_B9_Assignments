@@ -1,5 +1,6 @@
 package com.parabank.parasoft.pages;
 
+import com.parabank.parasoft.util.General;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -23,12 +24,13 @@ public class DDTLoginPage extends BasePage{
         getPageElement(By.cssSelector("input[value='Log In']")).click();
     }
 
-    public void logout(){
+    public DDTLoginPage logout(){
         getPageElement(By.linkText("Log Out")).click();
+        return this;
     }
 
     public boolean isSucceed(){
-        return !getPageElements(By.linkText("Log Out")).isEmpty();
+        return !getPageElements(By.cssSelector("a[href='logout.htm']")).isEmpty();
     }
 
 }

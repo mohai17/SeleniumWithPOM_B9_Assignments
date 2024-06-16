@@ -11,7 +11,7 @@ public class DDTRegistrationPage extends BasePage{
     }
 
     public DDTRegistrationPage registrationLinkClick(){
-        General.waitToSee();
+
         getPageElement(By.cssSelector("a[href='register.htm']")).click();
         return this;
     }
@@ -64,8 +64,9 @@ public class DDTRegistrationPage extends BasePage{
         getPageElement(By.cssSelector("input[value='Register']")).click();
         return this;
     }
-    public void logout(){
+    public DDTLoginPage logout(){
         getPageElement(By.linkText("Log Out")).click();
+        return getInstance(DDTLoginPage.class);
     }
 
     public boolean isSucceed(){

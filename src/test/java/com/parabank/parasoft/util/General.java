@@ -20,12 +20,12 @@ public class General {
     }
 
     public static Object[][] getData(String sheetName){
-        Workbook workbook;
-        Sheet sheet;
-
+        Workbook workbook = null;
+        Sheet sheet = null;
+        FileInputStream inputStream = null;
         try {
             String filepath = System.getProperty("user.dir")+"/src/test/resources/Book2.xlsx";
-            FileInputStream inputStream = new FileInputStream(filepath);
+            inputStream = new FileInputStream(filepath);
             workbook = WorkbookFactory.create(inputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -33,12 +33,18 @@ public class General {
 
         sheet = workbook.getSheet(sheetName);
 
-        Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
+        int rowCount = sheet.getLastRowNum()+1;
+        int cellCount = sheet.getRow(0).getLastCellNum();
 
-        for(int i=1;i<sheet.getLastRowNum();i++){
-            for (int j=0;j<sheet.getRow(0).getLastCellNum();j++){
+        Object[][] data = new Object[rowCount][cellCount];
 
-                data[i][j] = sheet.getRow(i+1).getCell(j).toString();
+//        System.out.println("RowNum:"+sheet.getLastRowNum());
+//        System.out.println("CellNum:"+sheet.getRow(0).getLastCellNum());
+
+        for(int i=0;i<rowCount;i++){
+            for (int j=0;j<cellCount;j++){
+
+                data[i][j] = sheet.getRow(i).getCell(j).toString();
 
                 System.out.println(data[i][j]);
             }
@@ -47,9 +53,10 @@ public class General {
         return data;
     }
 
-//    public static void main(String[] args)
-//    {
-//        getData("Sheet1");
+//    public static void main(String[] args){
+//        General.getData("MySheet01");
 //    }
 
 }
+
+
