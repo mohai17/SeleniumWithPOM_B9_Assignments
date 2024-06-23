@@ -29,6 +29,8 @@ public class BaseTest{
         webDriver.quit();
     }
 
-
+    public WebDriver getWebDriver(){
+        return webDriver;
+    }
 
 }

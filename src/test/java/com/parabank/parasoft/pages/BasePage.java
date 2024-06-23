@@ -1,5 +1,8 @@
 package com.parabank.parasoft.pages;
 
+import com.aventstack.extentreports.Status;
+import com.parabank.parasoft.report.ReportManager;
+import com.parabank.parasoft.report.ReportTestManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,17 +32,24 @@ public class BasePage extends Page{
 
     @Override
     public WebElement getPageElement(By locator) {
+
+        addInfo("WebElement is going to find.");
+
         WebElement element = null;
         try{
             element = webDriver.findElement(locator);
         }catch (Exception e){
             System.out.println(locator.toString()+"Locator is not found.");
         }
+
+        addInfo("Successfully done.");
         return element;
     }
 
     @Override
     public List<WebElement> getPageElements(By locator) {
+
+        addInfo("WebElement is going to find.");
 
         List<WebElement> elements = null;
         try{
@@ -47,6 +57,7 @@ public class BasePage extends Page{
         }catch (Exception e){
             System.out.println(locator.toString()+"Locator is not found.");
         }
+        addInfo("Successfully done.");
         return elements;
     }
 
@@ -65,5 +76,11 @@ public class BasePage extends Page{
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void addInfo(String msg){
+        if(ReportTestManager.getTest()!=null){
+            ReportTestManager.getTest().log(Status.INFO,msg);
+        }
     }
 }
