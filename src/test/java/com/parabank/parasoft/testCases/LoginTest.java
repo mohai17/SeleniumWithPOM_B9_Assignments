@@ -10,6 +10,7 @@ public class LoginTest extends BaseTest{
     @Test
     public void titleTest(){
 
+        basePage.addInfo("title is finding");
         String title = basePage.getPageTitle();
         String expected = "ParaBank | Welcome | Online Banking";
 
@@ -19,6 +20,7 @@ public class LoginTest extends BaseTest{
     @Test
     public void loginSucceed(){
 
+        basePage.addInfo("Login Page is testing.");
         LoginPage loginPage = basePage.getInstance(LoginPage.class);
         AccountOverviewPage accountOverviewPage = loginPage
                  .userName("nayeem")
